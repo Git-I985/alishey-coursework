@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;700&family=Open+Sans:wght@300;400;700&display=swap');
+
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Mulish', sans-serif;
+  user-select: none;
+  display: flex;
+}
+
+#calendar {
+  margin: 0 auto;
+  width: 80vw;
+
+  thead {
+    background-color: #3788d8;
+
+    a {
+      color: white !important;
+      text-decoration: none;
+    }
+  }
+
+  .fc-toolbar-title {
+    color: var(--gray);
+    font-weight: 300;
+  }
+
+  .fc-toolbar-title:first-letter {
+    text-transform: uppercase;
+  }
+
+  .fc-daygrid-day {
+    cursor: pointer;
+
+    &:hover {
+      background-color: #f9f9f9;
+    }
+
+    &.fc-day-today {
+      background-color: #e7f3ff;
+      .fc-daygrid-day-number {
+        color: #2065a0;
+      }
+    }
+  }
+
+  .fc-daygrid-day-number {
+    color: lightgray;
+    text-decoration: none;
+
+    &:hover {
+      color: gray;
+    }
+  }
+}
+
+.fc .fc-button {
+  background-color: #3788d8 !important;
+  border: none !important;
+
+  &:focus {
+    box-shadow: none !important;
+  }
+
+  &:hover {
+    filter: brightness(.9);
+  }
+
+  &-active {
+    background-color: #2065a0 !important;
+  }
+}
+
+
+
+
+
+
+

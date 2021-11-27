@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Студенческий календарь</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" type="text/css"
+          href="https://cdn.jsdelivr.net/npm/evo-calendar@1.1.2/evo-calendar/css/evo-calendar.min.css"/>
+    <style>
+        body {
+            padding: 5vw;
+            min-width: 1300px;
+            font-family: 'Open Sans', sans-serif;
+        }
+        ::selection {
+            background-color: #755eb5;
+            color: white;
+        }
+
+        .app {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        #calendar {
+            height: 700px;
+            width: 75%;
+            border-radius: 10px;
+        }
+
+        .calendar-inner {
+            height: 100%;
+            border-radius: 10px;
+        }
+
+        .calendar-sidebar > span#sidebarToggler {
+            top: 15px;
+            right: -15px;
+            box-shadow: none;
+            border-radius: 5px;
+        }
+
+        .calendar-table tr:first-child th {
+            padding-bottom: 50px;
+        }
+
+        th[colspan="7"]::after {
+            display: none;
+        }
+
+        .--weekend .day:not(.calendar-today) {
+            color: lightgray !important;
+        }
+
+        .--weekend .day:not(.calendar-today):hover {
+            background-color: #f4f4f4 !important;
+        }
+
+        .evo-calendar {
+            margin: 0;
+        }
+
+        tr.calendar-body .calendar-day .day.calendar-active, tr.calendar-body .calendar-day .day.calendar-active:hover {
+            border-color: #ababab80;
+        }
+
+        .event-form {
+            box-shadow: 0 10px 50px -20px #8773c1;
+            width: 22%;
+            padding: 40px;
+            border-radius: 10px;
+        }
+
+        .event-form input[type=text],
+        .event-form textarea,
+        .event-form select {
+            margin: 0;
+            padding: 10px;
+            display: block;
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f7f7f7;
+            border-radius: 5px;
+            cursor: pointer;
+            border: 1px solid #dedede;
+            color: #5a5a5a;
+        }
+
+        .calendar-sidebar > .calendar-year {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .calendar-sidebar>.calendar-year>button.icon-button {
+            width: 15px;
+            height: 15px;
+        }
+        .event-form input[type=text]:focus-visible,
+        .event-form textarea:focus-visible,
+        .event-form select:focus-visible {
+            outline: none;
+        }
+
+        .event-form label {
+            display: block;
+            color: gray;
+            margin-bottom: 15px;
+            width: 100%;
+        }
+
+        .event-form label > * {
+            margin-top: 15px !important;
+            width: 100%;
+        }
+
+        .event-form textarea {
+            resize: none;
+            height: 150px;
+        }
+
+        .event-form button[type=submit] {
+            background-color: #755eb5;
+            outline: none;
+            width: 100%;
+            border: none;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        #eventListToggler {
+            border-radius: 5px;
+            top: 15px;
+            right: 15px;
+            box-shadow: none;
+            transition: all .5s ease;
+        }
+
+        .event-hide #eventListToggler {
+            transform: rotate(180deg);
+        }
+
+        @media (max-width: 1602px) {
+            .app {
+                flex-direction: column-reverse;
+            }
+
+            #calendar {
+                width: 100%;
+            }
+
+            .event-form {
+                width: 100%;
+                margin-bottom: 30px;
+            }
+
+            .event-form .responsive-block {
+                display: flex;
+                gap: 20px;
+                justify-content: space-between;
+            }
+
+            .event-form button[type=submit] {
+                font-size: 20px;
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="app">
+    <div id='calendar'></div>
+    <div class='event-form'>
+        <form action="">
+            <div class="responsive-block">
+                <label>
+                    Цвет
+                    <select name="color">
+                        <option value="зеленый">зеленый</option>
+                        <option value="фиолетовый">фиолетовый</option>
+                        <option value="синий">синий</option>
+                        <option value="красный">красный</option>
+                    </select>
+                </label>
+                <label>Метки<input type="text" name="tags" placeholder="Метки"/></label>
+                <label>Время<input type="text" name="badge" placeholder="Время"/></label>
+            </div>
+            <label>Название<input type="text" name="name" placeholder="Название события"/></label>
+            <label>Описание<textarea name="description"></textarea></label>
+            <button type="submit">Добавить</button>
+        </form>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script src="scripts/evo-calendar-plugin.js"></script>
+<script src="scripts/index.js"></script>
+</body>
+</html>
