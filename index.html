@@ -3,12 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Студенческий календарь</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap"
           rel="stylesheet">
     <link rel="stylesheet" type="text/css"
-          href="https://cdn.jsdelivr.net/npm/evo-calendar@1.1.2/evo-calendar/css/evo-calendar.min.css"/>
+          href="./styles/libs/evo-calendar.min.css"/>
     <link rel="stylesheet" href="./styles/main.css">
 </head>
 <body>
@@ -20,7 +18,6 @@
                 <label>
                     Цвет
                     <select name="color">
-
                         <option value="#69e394">🟢 зеленый</option>
                         <option value="#c369e3">🟣 фиолетовый</option>
                         <option value="#69bde3">🔵 синий</option>
@@ -28,18 +25,23 @@
                     </select>
                 </label>
                 <label>Теги<input type="text" name="tags" placeholder="Теги через запятую"/></label>
-                <label>Время или метка<input type="text" name="badge" placeholder="Время или метка"/></label>
+                <label>Время или метка<input type="text" name="badge" placeholder="Время, метка, кабинет, тег"/></label>
             </div>
-            <label>Название<input type="text" name="name" placeholder="Название события" required/></label>
-            <label>Описание<textarea name="description"></textarea></label>
+            <div class="responsive-block">
+                <label>Название<input type="text" name="name" placeholder="Название события" required/></label>
+                <label>Описание<textarea name="description"></textarea></label>
+            </div>
+            <button class="stopEdit">Отмена</button>
+            <button class="deleteEvent">Удалить</button>
             <button type="submit">Добавить</button>
         </form>
     </div>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
-<script src="scripts/evo-calendar-plugin.js"></script>
-<script src="scripts/defaultEvents.js"></script>
-<script src="scripts/translations.js"></script>
-<script src="scripts/index.js"></script>
+<script src="scripts/libs/jquery.js"></script>
+<script src="scripts/libs/evo-calendar-plugin.js"></script>
+<script src="./scripts/defaultEvents.js"></script>
+<script src="./scripts/utils.js"></script>
+<script src="./scripts/translations.js"></script>
+<script src="./scripts/index.js"></script>
 </body>
 </html>

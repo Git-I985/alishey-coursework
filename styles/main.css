@@ -2,10 +2,12 @@ a.tag-link {
   background-color: #0097ff;
   color: white;
   padding: 3px 10px;
-  margin-right: 5px;
+  margin: 5px;
   border-radius: 5px;
   text-decoration: none;
   cursor: pointer;
+  display: inline-block;
+  word-break: break-all;
 }
 
 a.tag-link:hover {
@@ -14,9 +16,10 @@ a.tag-link:hover {
 
 body {
   padding: 5vw;
-  min-width: 1300px;
   font-family: 'Open Sans', sans-serif;
+  min-width: 630px;
 }
+
 ::selection {
   background-color: #755eb5;
   color: white;
@@ -26,10 +29,10 @@ body {
   width: 100%;
   display: flex;
   justify-content: space-between;
+  height: 730px;
 }
 
 #calendar {
-  height: 700px;
   width: 75%;
   border-radius: 10px;
 }
@@ -120,24 +123,43 @@ tr.calendar-body .calendar-day .day.calendar-active, tr.calendar-body .calendar-
 
 .event-form textarea {
   resize: none;
-  height: 150px;
+  height: 100px;
 }
 
-.event-form button[type=submit] {
-  background-color: #755eb5;
+.event-form button {
   outline: none;
   width: 100%;
   border: none;
-  color: white;
   padding: 10px;
   cursor: pointer;
   border-radius: 5px;
 }
 
+.event-form button:hover {
+  filter: brightness(.9);
+}
+
+.event-form .stopEdit {
+  margin-top: 30px;
+  margin-bottom: 10px;
+  display: none;
+}
+.event-form .deleteEvent {
+  margin-bottom: 10px;
+  background-color: #ff7575;
+  color: white;
+  display: none;
+}
+
+.event-form button[type=submit] {
+  background-color: #755eb5;
+  color: white;
+}
+
 #eventListToggler {
   border-radius: 5px;
-  top: 15px;
-  right: 15px;
+  top: 15px !important;
+  right: 15px !important;
   box-shadow: none;
   transition: all .5s ease;
 }
@@ -146,9 +168,51 @@ tr.calendar-body .calendar-day .day.calendar-active, tr.calendar-body .calendar-
   transform: rotate(180deg);
 }
 
+#sidebarToggler {
+  display: flex;
+}
+
+#sidebarToggler:hover, #eventListToggler:hover {
+  filter: brightness(.9);
+}
+
+#calendar:not(.sidebar-hide) #sidebarToggler .bars {
+  height: 0;
+}
+
+
+#calendar:not(.sidebar-hide) #sidebarToggler .bars::before,
+#calendar:not(.sidebar-hide) #sidebarToggler .bars::after{
+  transform: rotate(45deg);
+  position: absolute;
+  top: 50%;
+}
+
+
+#calendar:not(.sidebar-hide) #sidebarToggler .bars::before {
+  transform: rotate(-45deg);
+}
+
+
+
+button.icon-button>span.bars::before,
+button.icon-button>span.bars::after {
+  height: 3px;
+  border-radius: 3px;
+}
+
+button.icon-button>span.bars {
+  height: 3px;
+}
+
+.event-container>.event-info>p.event-desc {
+  word-break: break-word;
+}
+
 @media (max-width: 1602px) {
   .app {
     flex-direction: column-reverse;
+    height: auto;
   }
 
   #calendar {
@@ -166,8 +230,18 @@ tr.calendar-body .calendar-day .day.calendar-active, tr.calendar-body .calendar-
     justify-content: space-between;
   }
 
-  .event-form button[type=submit] {
+  .event-form {
     font-size: 20px;
     padding: 15px;
+  }
+  .event-form textarea {
+    height: 38px;
+  }
+
+}
+
+@media screen and (max-width: 768px) {
+  #eventListToggler {
+    transform: none;
   }
 }
