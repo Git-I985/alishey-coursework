@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "Приложение для планирования студенческой активности",
   "main": "main.js",
+  "scripts": {
+    "dev": "electron main.js",
+    "build": "electron-builder && mv ./dist/*.exe . && rm -rf ./dist"
+  },
   "devDependencies": {
     "electron": "^15.3.0",
     "electron-builder": "^22.13.1"
