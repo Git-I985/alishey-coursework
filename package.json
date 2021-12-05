@@ -4,8 +4,8 @@
   "description": "Приложение для планирования студенческой активности",
   "main": "main.js",
   "scripts": {
-    "dev": "electron main.js",
-    "build": "electron-builder && mv ./dist/*.exe . && rm -rf ./dist"
+    "electron:dev": "electron main.js",
+    "electron:build": "electron-builder && mv ./dist/*.exe . && rm -rf ./dist"
   },
   "devDependencies": {
     "electron": "^15.3.0",
